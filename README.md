@@ -1,4 +1,4 @@
-# spelling_matching_game
+# spelling_matching_pairs
 
 A new Flutter project.
 
