@@ -15,9 +15,11 @@ class Drop extends StatelessWidget {
     return DragTarget(
       onWillAccept: (data) {
         if (data == letter) {
+          // ignore: avoid_print
           print('accepted');
           return true;
         } else {
+          // ignore: avoid_print
           print('rejected');
           return false;
         }
