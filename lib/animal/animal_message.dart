@@ -24,10 +24,12 @@ class AnimalMessage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       backgroundColor: Colors.amber,
-      title: Text(
-        title,
-        style: const TextStyle(
-            fontFamily: 'PartyConfetti', fontSize: 60, color: Colors.white),
+      title: Center(
+        child: Text(
+          title,
+          style: const TextStyle(
+              fontFamily: 'PartyConfetti', fontSize: 50, color: Colors.white),
+        ),
       ),
       actionsAlignment: MainAxisAlignment.center,
       actions: [

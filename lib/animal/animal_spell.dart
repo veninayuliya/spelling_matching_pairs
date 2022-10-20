@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:spelling_matching_game/animal/animal_animation.dart';
 import 'package:spelling_matching_game/animal/animal_drag.dart';
 import 'package:spelling_matching_game/animal/animal_drop.dart';
+import 'package:spelling_matching_game/animal/animal_progressbar.dart';
 import 'package:spelling_matching_game/animal/animal_words.dart';
 import 'animal_controller.dart';
 
@@ -87,10 +89,13 @@ class _AnimalSpellState extends State<AnimalSpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: Image.asset(
-                            'assets/images/$_dropWord.png',
-                            width: 350,
-                            height: 300,
+                          child: AnAnimation(
+                            animate: true,
+                            child: Image.asset(
+                              'assets/images/$_dropWord.png',
+                              width: 350,
+                              height: 300,
+                            ),
                           ),
                         ))
                       ],
@@ -107,8 +112,11 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: _dropWord.characters ////
-                                .map((e) => Drop(
-                                      letter: e,
+                                .map((e) => AnAnimation(
+                                      animate: true,
+                                      child: Drop(
+                                        letter: e,
+                                      ),
                                     ))
                                 .toList(),
                           ),
@@ -119,10 +127,15 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _word.characters ////
-                                .map((e) => Drag(
+                            children: _word.characters
+                                .map(
+                                  (e) => AnAnimation(
+                                    animate: true,
+                                    child: Drag(
                                       letter: e,
-                                    ))
+                                    ),
+                                  ),
+                                )
                                 .toList(),
                           ),
                         ),
@@ -134,6 +147,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                   flex: 1,
                   child: Container(
                     color: Colors.purple,
+                    child: const AnProgressBar(),
                   ),
                 )
               ],

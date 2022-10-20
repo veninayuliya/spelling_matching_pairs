@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisSpacing: 50,
           children: <Widget>[
             Card(
-              color: const Color.fromARGB(255, 245, 198, 252),
+              color: const Color.fromARGB(255, 204, 113, 218),
               elevation: 15,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Animal()));
                 },
-                splashColor: const Color.fromARGB(255, 174, 78, 222),
+                splashColor: const Color.fromARGB(255, 111, 15, 159),
                 child: Center(
                   child: Column(
                     children: <Widget>[
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Card(
-              color: const Color.fromARGB(255, 206, 251, 150),
+              color: const Color.fromARGB(255, 164, 225, 89),
               elevation: 15,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Fruit()));
                 },
-                splashColor: const Color.fromARGB(255, 130, 234, 18),
+                splashColor: const Color.fromARGB(255, 108, 201, 8),
                 child: Center(
                   child: Column(
                     children: <Widget>[
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Card(
-              color: const Color.fromARGB(255, 251, 214, 158),
+              color: const Color.fromARGB(255, 254, 187, 85),
               elevation: 15,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(
                           builder: (context) => const BodyPart()));
                 },
-                splashColor: const Color.fromARGB(255, 252, 180, 24),
+                splashColor: const Color.fromARGB(255, 238, 165, 6),
                 child: Center(
                   child: Column(
                     children: <Widget>[
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Card(
-              color: const Color.fromARGB(255, 158, 210, 252),
+              color: const Color.fromARGB(255, 101, 182, 249),
               elevation: 15,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
