@@ -73,6 +73,8 @@ flutter:
     - assets/images/bgtr.png
     - assets/images/animals/
     - assets/images/fruits/
+    - assets/images/transportation/
+    - assets/images/body/
     - assets/audios/
 
   # An image asset can refer to one or more resolution-specific "variants", see
