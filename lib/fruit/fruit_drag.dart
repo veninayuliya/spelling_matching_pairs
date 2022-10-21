@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_controller.dart';
+import 'package:spelling_matching_game/fruit/fruit_controller.dart';
 
-class AnimalDrag extends StatefulWidget {
-  const AnimalDrag({
+class FruitDrag extends StatefulWidget {
+  const FruitDrag({
     required this.letter,
     Key? key,
   }) : super(key: key);
@@ -11,16 +11,16 @@ class AnimalDrag extends StatefulWidget {
   final String letter;
 
   @override
-  State<AnimalDrag> createState() => _DragState();
+  State<FruitDrag> createState() => _DragState();
 }
 
-class _DragState extends State<AnimalDrag> {
+class _DragState extends State<FruitDrag> {
   bool _accepted = false;
 
   @override
   Widget build(BuildContext context) {
     // return if true return if false
-    return Selector<AnimalController, bool>(
+    return Selector<FruitController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
@@ -36,7 +36,7 @@ class _DragState extends State<AnimalDrag> {
                       _accepted = true;
                       setState(() {});
 
-                      Provider.of<AnimalController>(context, listen: false)
+                      Provider.of<FruitController>(context, listen: false)
                           .incrementLetters(context: context);
                     }
                   },

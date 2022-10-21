@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AnimalDrop extends StatelessWidget {
-  const AnimalDrop({
+class FruitDrop extends StatelessWidget {
+  const FruitDrop({
     required this.letter,
     Key? key,
   }) : super(key: key);
@@ -36,7 +36,7 @@ class AnimalDrop extends StatelessWidget {
           );
         } else {
           return Container(
-            color: Colors.amber,
+            color: const Color.fromARGB(255, 201, 69, 224),
             width: 50,
             height: 50,
           );

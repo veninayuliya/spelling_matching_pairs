@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_matching_game/fruit/fruit_spell.dart';
 
 class Fruit extends StatelessWidget {
   const Fruit({super.key});
@@ -35,7 +36,12 @@ class Fruit extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 200, 237, 122),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const FruitSpell()));
+                    },
                     child: const Text(
                       'Spell',
                       style: TextStyle(

@@ -1,51 +1,48 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_animation.dart';
-import 'package:spelling_matching_game/animal/animal_drag.dart';
-import 'package:spelling_matching_game/animal/animal_drop.dart';
-import 'package:spelling_matching_game/animal/animal_progressbar.dart';
-import 'package:spelling_matching_game/animal/animal_words.dart';
-import 'animal_controller.dart';
+import 'package:spelling_matching_game/fruit/fruit_animation.dart';
+import 'package:spelling_matching_game/fruit/fruit_controller.dart';
+import 'package:spelling_matching_game/fruit/fruit_drag.dart';
+import 'package:spelling_matching_game/fruit/fruit_drop.dart';
+import 'package:spelling_matching_game/fruit/fruit_progressbar.dart';
+import 'package:spelling_matching_game/fruit/fruit_words.dart';
 
-class AnimalSpell extends StatefulWidget {
-  const AnimalSpell({super.key});
+class FruitSpell extends StatefulWidget {
+  const FruitSpell({super.key});
 
   @override
-  State<AnimalSpell> createState() => _AnimalSpellState();
+  State<FruitSpell> createState() => _FruitSpellState();
 }
 
-class _AnimalSpellState extends State<AnimalSpell> {
-// private var
-  final List<String> _anwords = animalWords.toList();
-  late String _anword, _andropWord; ////
+class _FruitSpellState extends State<FruitSpell> {
+  final List<String> _frwords = fruitWords.toList();
+  late String _frword, _frdropWord; ////
 
   _generatedWord() {
-    final r = Random().nextInt(_anwords.length);
-    _anword = _anwords[r];
+    final r = Random().nextInt(_frwords.length);
+    _frword = _frwords[r];
     // print(_word);
-    _andropWord = _anwords[r];
-    _anwords.removeAt(r);
-    final s = _anword.characters.toList()..shuffle(); ////
-    _anword = s.join(); ////
+    _frdropWord = _frwords[r];
+    _frwords.removeAt(r);
+    final s = _frword.characters.toList()..shuffle(); ////
+    _frword = s.join(); ////
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<AnimalController>(context, listen: false)
-          .setUp(total: _anword.length); ////
-      Provider.of<AnimalController>(context, listen: false)
+      Provider.of<FruitController>(context, listen: false)
+          .setUp(total: _frword.length); ////
+      Provider.of<FruitController>(context, listen: false)
           .requestWord(request: false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Selector<AnimalController, bool>(
+    return Selector<FruitController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
-          if (_anwords.isNotEmpty) {
+          if (_frwords.isNotEmpty) {
             _generatedWord();
           }
         }
@@ -60,7 +57,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                 },
               ),
               elevation: 0,
-              backgroundColor: const Color.fromARGB(255, 209, 188, 225),
+              backgroundColor: const Color.fromARGB(255, 178, 246, 157),
             ),
             body: Column(
               children: [
@@ -68,7 +65,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                   flex: 7,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 209, 188, 225),
+                      color: Color.fromARGB(255, 178, 246, 157),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(80),
                           bottomRight: Radius.circular(80)),
@@ -81,7 +78,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           padding: EdgeInsets.all(8.0),
                           child: Center(
                             child: Text(
-                              'What animal is this ?',
+                              'What fruit is this ?',
                               style: TextStyle(
                                   fontFamily: 'FjallaOne', fontSize: 16),
                             ),
@@ -89,10 +86,10 @@ class _AnimalSpellState extends State<AnimalSpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: AnAnimation(
+                          child: FrAnimation(
                             animate: true,
                             child: Image.asset(
-                              'assets/images/animals/$_andropWord.png',
+                              'assets/images/fruits/$_frdropWord.png',
                               width: 300,
                               height: 270,
                             ),
@@ -111,10 +108,10 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _andropWord.characters ////
-                                .map((e) => AnAnimation(
+                            children: _frdropWord.characters ////
+                                .map((e) => FrAnimation(
                                       animate: true,
-                                      child: AnimalDrop(
+                                      child: FruitDrop(
                                         letter: e,
                                       ),
                                     ))
@@ -127,11 +124,11 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _anword.characters
+                            children: _frword.characters
                                 .map(
-                                  (e) => AnAnimation(
+                                  (e) => FrAnimation(
                                     animate: true,
-                                    child: AnimalDrag(
+                                    child: FruitDrag(
                                       letter: e,
                                     ),
                                   ),
@@ -147,7 +144,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                   flex: 1,
                   child: Container(
                     color: Colors.purple,
-                    child: const AnProgressBar(),
+                    child: const FrProgressBar(),
                   ),
                 )
               ],

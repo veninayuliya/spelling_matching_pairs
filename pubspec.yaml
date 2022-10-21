@@ -21,7 +21,6 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
-  flutter: "^3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -72,7 +71,8 @@ flutter:
     - assets/images/bgbp.png
     - assets/images/bgfr.png
     - assets/images/bgtr.png
-    - assets/images/
+    - assets/images/animals/
+    - assets/images/fruits/
     - assets/audios/
 
   # An image asset can refer to one or more resolution-specific "variants", see
