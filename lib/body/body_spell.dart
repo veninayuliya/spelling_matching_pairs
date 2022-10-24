@@ -2,47 +2,48 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/fruit/fruit_animation.dart';
-import 'package:spelling_matching_game/fruit/fruit_controller.dart';
-import 'package:spelling_matching_game/fruit/fruit_drag.dart';
-import 'package:spelling_matching_game/fruit/fruit_drop.dart';
-import 'package:spelling_matching_game/fruit/fruit_progressbar.dart';
-import 'package:spelling_matching_game/fruit/fruit_words.dart';
+import 'package:spelling_matching_game/body/body.dart';
+import 'package:spelling_matching_game/body/body_animation.dart';
+import 'package:spelling_matching_game/body/body_controller.dart';
+import 'package:spelling_matching_game/body/body_drag.dart';
+import 'package:spelling_matching_game/body/body_drop.dart';
+import 'package:spelling_matching_game/body/body_progressbar.dart';
+import 'package:spelling_matching_game/body/body_words.dart';
 
-class FruitSpell extends StatefulWidget {
-  const FruitSpell({super.key});
+class BodySpell extends StatefulWidget {
+  const BodySpell({super.key});
 
   @override
-  State<FruitSpell> createState() => _FruitSpellState();
+  State<BodySpell> createState() => _BodySpellState();
 }
 
-class _FruitSpellState extends State<FruitSpell> {
-  final List<String> _frwords = fruitWords.toList();
-  late String _frword, _frdropWord; ////
+class _BodySpellState extends State<BodySpell> {
+  final List<String> _bdwords = bodyWords.toList();
+  late String _bdword, _bddropWord; ////
 
   _generatedWord() {
-    final r = Random().nextInt(_frwords.length);
-    _frword = _frwords[r];
+    final r = Random().nextInt(_bdwords.length);
+    _bdword = _bdwords[r];
     // print(_word);
-    _frdropWord = _frwords[r];
-    _frwords.removeAt(r);
-    final s = _frword.characters.toList()..shuffle(); ////
-    _frword = s.join(); ////
+    _bddropWord = _bdwords[r];
+    _bdwords.removeAt(r);
+    final s = _bdword.characters.toList()..shuffle(); ////
+    _bdword = s.join(); ////
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<FruitController>(context, listen: false)
-          .setUp(total: _frword.length); ////
-      Provider.of<FruitController>(context, listen: false)
+      Provider.of<BodyController>(context, listen: false)
+          .setUp(total: _bdword.length); ////
+      Provider.of<BodyController>(context, listen: false)
           .requestWord(request: false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Selector<FruitController, bool>(
+    return Selector<BodyController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
-          if (_frwords.isNotEmpty) {
+          if (_bdwords.isNotEmpty) {
             _generatedWord();
           }
         }
@@ -53,11 +54,14 @@ class _FruitSpellState extends State<FruitSpell> {
                 icon: const Icon(Icons.arrow_back_ios_rounded,
                     color: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BodyPart()));
                 },
               ),
               elevation: 0,
-              backgroundColor: const Color.fromARGB(255, 198, 237, 185),
+              backgroundColor: const Color.fromARGB(255, 249, 226, 145),
             ),
             body: Column(
               children: [
@@ -65,7 +69,7 @@ class _FruitSpellState extends State<FruitSpell> {
                   flex: 7,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 198, 237, 185),
+                      color: Color.fromARGB(255, 249, 226, 145),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(80),
                           bottomRight: Radius.circular(80)),
@@ -78,7 +82,7 @@ class _FruitSpellState extends State<FruitSpell> {
                           padding: EdgeInsets.all(8.0),
                           child: Center(
                             child: Text(
-                              'What fruit is this ?',
+                              'What part is this ?',
                               style: TextStyle(
                                   fontFamily: 'FjallaOne', fontSize: 16),
                             ),
@@ -86,10 +90,10 @@ class _FruitSpellState extends State<FruitSpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: FrAnimation(
+                          child: BdAnimation(
                             animate: true,
                             child: Image.asset(
-                              'assets/images/fruits/$_frdropWord.png',
+                              'assets/images/body/$_bddropWord.png',
                               width: 300,
                               height: 270,
                             ),
@@ -108,10 +112,10 @@ class _FruitSpellState extends State<FruitSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _frdropWord.characters ////
-                                .map((e) => FrAnimation(
+                            children: _bddropWord.characters ////
+                                .map((e) => BdAnimation(
                                       animate: true,
-                                      child: FruitDrop(
+                                      child: BodyDrop(
                                         letter: e,
                                       ),
                                     ))
@@ -124,11 +128,11 @@ class _FruitSpellState extends State<FruitSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _frword.characters
+                            children: _bdword.characters
                                 .map(
-                                  (e) => FrAnimation(
+                                  (e) => BdAnimation(
                                     animate: true,
-                                    child: FruitDrag(
+                                    child: BodyDrag(
                                       letter: e,
                                     ),
                                   ),
@@ -144,7 +148,7 @@ class _FruitSpellState extends State<FruitSpell> {
                   flex: 1,
                   child: Container(
                     color: Colors.purple,
-                    child: const FrProgressBar(),
+                    child: const BodyProgressBar(),
                   ),
                 )
               ],

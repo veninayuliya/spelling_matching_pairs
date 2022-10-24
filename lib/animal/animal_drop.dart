@@ -36,7 +36,7 @@ class AnimalDrop extends StatelessWidget {
           );
         } else {
           return Container(
-            color: Colors.amber,
+            color: const Color.fromARGB(255, 204, 235, 248),
             width: 50,
             height: 50,
           );

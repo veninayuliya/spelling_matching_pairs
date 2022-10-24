@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spelling_matching_game/animal/animal_spell.dart';
+import 'package:spelling_matching_game/home.dart';
 
 class Animal extends StatelessWidget {
   const Animal({super.key});
@@ -12,7 +13,8 @@ class Animal extends StatelessWidget {
           icon:
               const Icon(Icons.arrow_back_ios_rounded, color: Colors.blueGrey),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomePage()));
           },
         ),
         elevation: 0,

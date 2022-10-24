@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_matching_game/home.dart';
+import 'package:spelling_matching_game/transportation/trans_spell.dart';
 
 class Transportation extends StatelessWidget {
   const Transportation({super.key});
@@ -11,7 +13,8 @@ class Transportation extends StatelessWidget {
           icon:
               const Icon(Icons.arrow_back_ios_rounded, color: Colors.blueGrey),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomePage()));
           },
         ),
         elevation: 0,
@@ -35,7 +38,12 @@ class Transportation extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 130, 185, 235),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TransSpell()));
+                    },
                     child: const Text(
                       'Spell',
                       style: TextStyle(

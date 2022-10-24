@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_matching_game/body/body_spell.dart';
+import 'package:spelling_matching_game/home.dart';
 
 class BodyPart extends StatelessWidget {
   const BodyPart({super.key});
@@ -11,7 +13,8 @@ class BodyPart extends StatelessWidget {
           icon:
               const Icon(Icons.arrow_back_ios_rounded, color: Colors.blueGrey),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomePage()));
           },
         ),
         elevation: 0,
@@ -35,7 +38,12 @@ class BodyPart extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 241, 188, 188),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BodySpell()));
+                    },
                     child: const Text(
                       'Spell',
                       style: TextStyle(

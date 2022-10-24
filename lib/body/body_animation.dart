@@ -3,17 +3,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class FrAnimation extends StatefulWidget {
-  FrAnimation({required this.child, required this.animate, super.key});
+class BdAnimation extends StatefulWidget {
+  BdAnimation({required this.child, required this.animate, super.key});
 
   final Widget child;
   bool animate;
 
   @override
-  State<FrAnimation> createState() => _FrAnimationState();
+  State<BdAnimation> createState() => _BdAnimationState();
 }
 
-class _FrAnimationState extends State<FrAnimation>
+class _BdAnimationState extends State<BdAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _rotationAnimation;
@@ -37,7 +37,7 @@ class _FrAnimationState extends State<FrAnimation>
   }
 
   @override
-  void didUpdateWidget(covariant FrAnimation oldWidget) {
+  void didUpdateWidget(covariant BdAnimation oldWidget) {
     if (widget.animate && !_controller.isAnimating) {
       _controller.reset();
       _controller.forward();

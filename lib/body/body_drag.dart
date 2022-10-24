@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_controller.dart';
+import 'package:spelling_matching_game/body/body_controller.dart';
 
-class AnimalDrag extends StatefulWidget {
-  const AnimalDrag({
+class BodyDrag extends StatefulWidget {
+  const BodyDrag({
     required this.letter,
     Key? key,
   }) : super(key: key);
@@ -11,16 +11,16 @@ class AnimalDrag extends StatefulWidget {
   final String letter;
 
   @override
-  State<AnimalDrag> createState() => _AnimalDragState();
+  State<BodyDrag> createState() => _BodyDragState();
 }
 
-class _AnimalDragState extends State<AnimalDrag> {
+class _BodyDragState extends State<BodyDrag> {
   bool _accepted = false;
 
   @override
   Widget build(BuildContext context) {
     // return if true return if false
-    return Selector<AnimalController, bool>(
+    return Selector<BodyController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
@@ -36,7 +36,7 @@ class _AnimalDragState extends State<AnimalDrag> {
                       _accepted = true;
                       setState(() {});
 
-                      Provider.of<AnimalController>(context, listen: false)
+                      Provider.of<BodyController>(context, listen: false)
                           .incrementLetters(context: context);
                     }
                   },

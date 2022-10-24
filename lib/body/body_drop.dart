@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FruitDrop extends StatelessWidget {
-  const FruitDrop({
+class BodyDrop extends StatelessWidget {
+  const BodyDrop({
     required this.letter,
     Key? key,
   }) : super(key: key);
@@ -36,7 +36,7 @@ class FruitDrop extends StatelessWidget {
           );
         } else {
           return Container(
-            color: const Color.fromARGB(255, 210, 191, 225),
+            color: const Color.fromARGB(255, 249, 209, 209),
             width: 50,
             height: 50,
           );

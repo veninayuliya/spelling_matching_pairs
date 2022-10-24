@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/fruit/fruit_controller.dart';
-import 'package:spelling_matching_game/fruit/fruit_spell.dart';
+import 'package:spelling_matching_game/body/body_controller.dart';
+import 'package:spelling_matching_game/body/body_spell.dart';
 
-class FruitMessage extends StatelessWidget {
-  const FruitMessage({required this.sessionCompleted, super.key});
+class BodyMessage extends StatelessWidget {
+  const BodyMessage({required this.sessionCompleted, super.key});
 
   final bool sessionCompleted;
 
@@ -21,7 +21,7 @@ class FruitMessage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      backgroundColor: const Color.fromARGB(255, 216, 113, 235),
+      backgroundColor: const Color.fromARGB(255, 255, 82, 82),
       title: Center(
         child: Text(
           title,
@@ -38,11 +38,11 @@ class FruitMessage extends StatelessWidget {
             )),
             onPressed: () {
               if (sessionCompleted) {
-                Provider.of<FruitController>(context, listen: false).reset();
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const FruitSpell()));
+                Provider.of<BodyController>(context, listen: false).reset();
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const BodySpell()));
               } else {
-                Provider.of<FruitController>(context, listen: false)
+                Provider.of<BodyController>(context, listen: false)
                     .requestWord(request: true);
                 Navigator.of(context).pop();
               }
