@@ -94,8 +94,8 @@ class _TransSpellState extends State<TransSpell> {
                             animate: true,
                             child: Image.asset(
                               'assets/images/transportation/$_trdropWord.png',
-                              width: 300,
-                              height: 270,
+                              width: 270,
+                              height: 230,
                             ),
                           ),
                         ))

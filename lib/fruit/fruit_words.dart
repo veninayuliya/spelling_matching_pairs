@@ -15,6 +15,4 @@ const List<String> fruitWords = [
   'PEAR',
   'PINEAPPLE',
   'STARFRUIT',
-  'STRAWBERRY',
-  'WATERMELON'
 ];

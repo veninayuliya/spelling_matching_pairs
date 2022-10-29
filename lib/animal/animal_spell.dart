@@ -93,8 +93,8 @@ class _AnimalSpellState extends State<AnimalSpell> {
                             animate: true,
                             child: Image.asset(
                               'assets/images/animals/$_andropWord.png',
-                              width: 300,
-                              height: 270,
+                              width: 270,
+                              height: 230,
                             ),
                           ),
                         ))

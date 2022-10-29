@@ -8,20 +8,13 @@ import 'animal/animal_controller.dart';
 import 'fruit/fruit_controller.dart';
 
 void main() {
-  runApp(
-      // ChangeNotifierProvider(
-      //   create: (_) => AnimalController(),
-      //   child: const MyApp(),
-      // ),
-      MultiProvider(
+  runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<AnimalController>(
           create: (_) => AnimalController()),
       ChangeNotifierProvider<FruitController>(create: (_) => FruitController()),
       ChangeNotifierProvider<BodyController>(create: (_) => BodyController()),
       ChangeNotifierProvider<TransController>(create: (_) => TransController()),
-      // Provider<SomethingElse>(create: (_) => SomethingElse()),
-      // Provider<AnotherThing>(create: (_) => AnotherThing()),
     ],
     child: const MyApp(),
   ));

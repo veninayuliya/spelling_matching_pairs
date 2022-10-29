@@ -90,8 +90,8 @@ class _FruitSpellState extends State<FruitSpell> {
                             animate: true,
                             child: Image.asset(
                               'assets/images/fruits/$_frdropWord.png',
-                              width: 300,
-                              height: 270,
+                              width: 270,
+                              height: 230,
                             ),
                           ),
                         ))

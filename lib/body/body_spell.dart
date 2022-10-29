@@ -94,8 +94,8 @@ class _BodySpellState extends State<BodySpell> {
                             animate: true,
                             child: Image.asset(
                               'assets/images/body/$_bddropWord.png',
-                              width: 300,
-                              height: 270,
+                              width: 270,
+                              height: 230,
                             ),
                           ),
                         ))
