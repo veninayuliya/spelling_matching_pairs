@@ -1,9 +1,10 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/body/body_message.dart';
-import 'package:spelling_matching_game/body/body_words.dart';
+import 'package:spelling_matching_game/animal/spell/animal_message.dart';
+import 'package:spelling_matching_game/animal/spell/animal_words.dart';
 
-class BodyController extends ChangeNotifier {
+class AnimalController extends ChangeNotifier {
   int totalLetters = 0, lettersAnswered = 0, wordsAnswered = 0;
   bool generatedWord = true, sessionCompleted = false;
   double percentCompleted = 0;
@@ -22,14 +23,14 @@ class BodyController extends ChangeNotifier {
       AudioCache().play('audios/correct3.mp3');
       // print('completed');
       wordsAnswered++;
-      percentCompleted = wordsAnswered / bodyWords.length;
-      if (wordsAnswered == bodyWords.length) {
+      percentCompleted = wordsAnswered / animalWords.length;
+      if (wordsAnswered == animalWords.length) {
         sessionCompleted = true;
       }
       showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (_) => BodyMessage(
+          builder: (_) => AnimalMessage(
                 sessionCompleted: sessionCompleted,
               ));
     } else {

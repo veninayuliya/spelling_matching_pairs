@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_controller.dart';
+import 'package:spelling_matching_game/animal/spell/animal_controller.dart';
 
 class AnimalDrag extends StatefulWidget {
   const AnimalDrag({

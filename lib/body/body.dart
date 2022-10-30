@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/body/body_spell.dart';
+import 'package:spelling_matching_game/body/spell/body_spell.dart';
 import 'package:spelling_matching_game/home.dart';
 
 class BodyPart extends StatelessWidget {

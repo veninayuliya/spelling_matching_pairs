@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spelling_matching_game/home.dart';
-import 'package:spelling_matching_game/transportation/trans_spell.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_spell.dart';
 
 class Transportation extends StatelessWidget {
   const Transportation({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/fruit/fruit_controller.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_controller.dart';
 
 class FruitDrag extends StatefulWidget {
   const FruitDrag({

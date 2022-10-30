@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/src/widgets/container.dart';
+// import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/fruit/fruit_controller.dart';
-import 'package:spelling_matching_game/fruit/fruit_spell.dart';
+import 'package:spelling_matching_game/animal/spell/animal_controller.dart';
+import 'package:spelling_matching_game/animal/spell/animal_spell.dart';
 
-class FruitMessage extends StatelessWidget {
-  const FruitMessage({required this.sessionCompleted, super.key});
+class AnimalMessage extends StatelessWidget {
+  const AnimalMessage({required this.sessionCompleted, super.key});
 
   final bool sessionCompleted;
 
@@ -21,7 +23,7 @@ class FruitMessage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      backgroundColor: const Color.fromARGB(255, 216, 113, 235),
+      backgroundColor: Colors.amber,
       title: Center(
         child: Text(
           title,
@@ -38,11 +40,11 @@ class FruitMessage extends StatelessWidget {
             )),
             onPressed: () {
               if (sessionCompleted) {
-                Provider.of<FruitController>(context, listen: false).reset();
+                Provider.of<AnimalController>(context, listen: false).reset();
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const FruitSpell()));
+                    builder: (context) => const AnimalSpell()));
               } else {
-                Provider.of<FruitController>(context, listen: false)
+                Provider.of<AnimalController>(context, listen: false)
                     .requestWord(request: true);
                 Navigator.of(context).pop();
               }

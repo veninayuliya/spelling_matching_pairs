@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/animal/animal_spell.dart';
+import 'package:spelling_matching_game/animal/animal_match.dart';
+import 'package:spelling_matching_game/animal/spell/animal_spell.dart';
 import 'package:spelling_matching_game/home.dart';
 
 class Animal extends StatelessWidget {
@@ -65,7 +66,12 @@ class Animal extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 210, 184, 231),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AnimalMatch()));
+                    },
                     child: const Text(
                       'Match',
                       style: TextStyle(

@@ -2,48 +2,48 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/body/body.dart';
-import 'package:spelling_matching_game/body/body_animation.dart';
-import 'package:spelling_matching_game/body/body_controller.dart';
-import 'package:spelling_matching_game/body/body_drag.dart';
-import 'package:spelling_matching_game/body/body_drop.dart';
-import 'package:spelling_matching_game/body/body_progressbar.dart';
-import 'package:spelling_matching_game/body/body_words.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_animation.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_controller.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_drag.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_drop.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_progressbar.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_words.dart';
+import 'package:spelling_matching_game/transportation/transportation.dart';
 
-class BodySpell extends StatefulWidget {
-  const BodySpell({super.key});
+class TransSpell extends StatefulWidget {
+  const TransSpell({super.key});
 
   @override
-  State<BodySpell> createState() => _BodySpellState();
+  State<TransSpell> createState() => _TransSpellState();
 }
 
-class _BodySpellState extends State<BodySpell> {
-  final List<String> _bdwords = bodyWords.toList();
-  late String _bdword, _bddropWord; ////
+class _TransSpellState extends State<TransSpell> {
+  final List<String> _trwords = transWords.toList();
+  late String _trword, _trdropWord; ////
 
   _generatedWord() {
-    final r = Random().nextInt(_bdwords.length);
-    _bdword = _bdwords[r];
+    final r = Random().nextInt(_trwords.length);
+    _trword = _trwords[r];
     // print(_word);
-    _bddropWord = _bdwords[r];
-    _bdwords.removeAt(r);
-    final s = _bdword.characters.toList()..shuffle(); ////
-    _bdword = s.join(); ////
+    _trdropWord = _trwords[r];
+    _trwords.removeAt(r);
+    final s = _trword.characters.toList()..shuffle(); ////
+    _trword = s.join(); ////
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<BodyController>(context, listen: false)
-          .setUp(total: _bdword.length); ////
-      Provider.of<BodyController>(context, listen: false)
+      Provider.of<TransController>(context, listen: false)
+          .setUp(total: _trword.length); ////
+      Provider.of<TransController>(context, listen: false)
           .requestWord(request: false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Selector<BodyController, bool>(
+    return Selector<TransController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
-          if (_bdwords.isNotEmpty) {
+          if (_trwords.isNotEmpty) {
             _generatedWord();
           }
         }
@@ -57,11 +57,11 @@ class _BodySpellState extends State<BodySpell> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BodyPart()));
+                          builder: (context) => const Transportation()));
                 },
               ),
               elevation: 0,
-              backgroundColor: const Color.fromARGB(255, 249, 226, 145),
+              backgroundColor: const Color.fromARGB(255, 150, 192, 232),
             ),
             body: Column(
               children: [
@@ -69,7 +69,7 @@ class _BodySpellState extends State<BodySpell> {
                   flex: 7,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 249, 226, 145),
+                      color: Color.fromARGB(255, 150, 192, 232),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(80),
                           bottomRight: Radius.circular(80)),
@@ -82,7 +82,7 @@ class _BodySpellState extends State<BodySpell> {
                           padding: EdgeInsets.all(8.0),
                           child: Center(
                             child: Text(
-                              'What part is this ?',
+                              'What is this ?',
                               style: TextStyle(
                                   fontFamily: 'FjallaOne', fontSize: 16),
                             ),
@@ -90,10 +90,10 @@ class _BodySpellState extends State<BodySpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: BdAnimation(
+                          child: TrAnimation(
                             animate: true,
                             child: Image.asset(
-                              'assets/images/body/$_bddropWord.png',
+                              'assets/images/transportation/$_trdropWord.png',
                               width: 270,
                               height: 230,
                             ),
@@ -112,10 +112,10 @@ class _BodySpellState extends State<BodySpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _bddropWord.characters ////
-                                .map((e) => BdAnimation(
+                            children: _trdropWord.characters ////
+                                .map((e) => TrAnimation(
                                       animate: true,
-                                      child: BodyDrop(
+                                      child: TransDrop(
                                         letter: e,
                                       ),
                                     ))
@@ -128,11 +128,11 @@ class _BodySpellState extends State<BodySpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _bdword.characters
+                            children: _trword.characters
                                 .map(
-                                  (e) => BdAnimation(
+                                  (e) => TrAnimation(
                                     animate: true,
-                                    child: BodyDrag(
+                                    child: TransDrag(
                                       letter: e,
                                     ),
                                   ),
@@ -144,12 +144,9 @@ class _BodySpellState extends State<BodySpell> {
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
-                  child: Container(
-                    color: Colors.purple,
-                    child: const BodyProgressBar(),
-                  ),
+                  child: TransProgressBar(),
                 )
               ],
             ),

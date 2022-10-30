@@ -1,51 +1,49 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_animation.dart';
-import 'package:spelling_matching_game/animal/animal_drag.dart';
-import 'package:spelling_matching_game/animal/animal_drop.dart';
-import 'package:spelling_matching_game/animal/animal_progressbar.dart';
-import 'package:spelling_matching_game/animal/animal_words.dart';
-import 'animal_controller.dart';
+import 'package:spelling_matching_game/body/body.dart';
+import 'package:spelling_matching_game/body/spell/body_animation.dart';
+import 'package:spelling_matching_game/body/spell/body_controller.dart';
+import 'package:spelling_matching_game/body/spell/body_drag.dart';
+import 'package:spelling_matching_game/body/spell/body_drop.dart';
+import 'package:spelling_matching_game/body/spell/body_progressbar.dart';
+import 'package:spelling_matching_game/body/spell/body_words.dart';
 
-class AnimalSpell extends StatefulWidget {
-  const AnimalSpell({super.key});
+class BodySpell extends StatefulWidget {
+  const BodySpell({super.key});
 
   @override
-  State<AnimalSpell> createState() => _AnimalSpellState();
+  State<BodySpell> createState() => _BodySpellState();
 }
 
-class _AnimalSpellState extends State<AnimalSpell> {
-// private var
-  final List<String> _anwords = animalWords.toList();
-  late String _anword, _andropWord; ////
+class _BodySpellState extends State<BodySpell> {
+  final List<String> _bdwords = bodyWords.toList();
+  late String _bdword, _bddropWord; ////
 
   _generatedWord() {
-    final r = Random().nextInt(_anwords.length);
-    _anword = _anwords[r];
+    final r = Random().nextInt(_bdwords.length);
+    _bdword = _bdwords[r];
     // print(_word);
-    _andropWord = _anwords[r];
-    _anwords.removeAt(r);
-    final s = _anword.characters.toList()..shuffle(); ////
-    _anword = s.join(); ////
+    _bddropWord = _bdwords[r];
+    _bdwords.removeAt(r);
+    final s = _bdword.characters.toList()..shuffle(); ////
+    _bdword = s.join(); ////
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<AnimalController>(context, listen: false)
-          .setUp(total: _anword.length); ////
-      Provider.of<AnimalController>(context, listen: false)
+      Provider.of<BodyController>(context, listen: false)
+          .setUp(total: _bdword.length); ////
+      Provider.of<BodyController>(context, listen: false)
           .requestWord(request: false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Selector<AnimalController, bool>(
+    return Selector<BodyController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
-          if (_anwords.isNotEmpty) {
+          if (_bdwords.isNotEmpty) {
             _generatedWord();
           }
         }
@@ -56,11 +54,14 @@ class _AnimalSpellState extends State<AnimalSpell> {
                 icon: const Icon(Icons.arrow_back_ios_rounded,
                     color: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const BodyPart()));
                 },
               ),
               elevation: 0,
-              backgroundColor: const Color.fromARGB(255, 209, 188, 225),
+              backgroundColor: const Color.fromARGB(255, 249, 226, 145),
             ),
             body: Column(
               children: [
@@ -68,7 +69,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                   flex: 7,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 209, 188, 225),
+                      color: Color.fromARGB(255, 249, 226, 145),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(80),
                           bottomRight: Radius.circular(80)),
@@ -81,7 +82,7 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           padding: EdgeInsets.all(8.0),
                           child: Center(
                             child: Text(
-                              'What animal is this ?',
+                              'What part is this ?',
                               style: TextStyle(
                                   fontFamily: 'FjallaOne', fontSize: 16),
                             ),
@@ -89,10 +90,10 @@ class _AnimalSpellState extends State<AnimalSpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: AnAnimation(
+                          child: BdAnimation(
                             animate: true,
                             child: Image.asset(
-                              'assets/images/animals/$_andropWord.png',
+                              'assets/images/body/$_bddropWord.png',
                               width: 270,
                               height: 230,
                             ),
@@ -111,10 +112,10 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _andropWord.characters ////
-                                .map((e) => AnAnimation(
+                            children: _bddropWord.characters ////
+                                .map((e) => BdAnimation(
                                       animate: true,
-                                      child: AnimalDrop(
+                                      child: BodyDrop(
                                         letter: e,
                                       ),
                                     ))
@@ -127,11 +128,11 @@ class _AnimalSpellState extends State<AnimalSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _anword.characters
+                            children: _bdword.characters
                                 .map(
-                                  (e) => AnAnimation(
+                                  (e) => BdAnimation(
                                     animate: true,
-                                    child: AnimalDrag(
+                                    child: BodyDrag(
                                       letter: e,
                                     ),
                                   ),
@@ -143,12 +144,9 @@ class _AnimalSpellState extends State<AnimalSpell> {
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
-                  child: Container(
-                    color: Colors.purple,
-                    child: const AnProgressBar(),
-                  ),
+                  child: BodyProgressBar(),
                 )
               ],
             ),

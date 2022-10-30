@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/fruit/fruit_controller.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_controller.dart';
 
 class FrProgressBar extends StatefulWidget {
   const FrProgressBar({super.key});
@@ -52,8 +52,16 @@ class _FrProgressBarState extends State<FrProgressBar>
           }
           return AnimatedBuilder(
             animation: _controller,
-            builder: (context, child) => LinearProgressIndicator(
-              value: _animation.value,
+            builder: (context, child) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                child: LinearProgressIndicator(
+                  color: Colors.purple,
+                  backgroundColor: Colors.grey,
+                  value: _animation.value,
+                ),
+              ),
             ),
           );
         });

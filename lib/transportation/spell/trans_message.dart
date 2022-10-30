@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/animal/animal_controller.dart';
-import 'package:spelling_matching_game/animal/animal_spell.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_controller.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_spell.dart';
 
-class AnimalMessage extends StatelessWidget {
-  const AnimalMessage({required this.sessionCompleted, super.key});
+class TransMessage extends StatelessWidget {
+  const TransMessage({required this.sessionCompleted, super.key});
 
   final bool sessionCompleted;
 
@@ -23,7 +21,7 @@ class AnimalMessage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      backgroundColor: Colors.amber,
+      backgroundColor: const Color.fromARGB(255, 49, 182, 166),
       title: Center(
         child: Text(
           title,
@@ -40,11 +38,11 @@ class AnimalMessage extends StatelessWidget {
             )),
             onPressed: () {
               if (sessionCompleted) {
-                Provider.of<AnimalController>(context, listen: false).reset();
+                Provider.of<TransController>(context, listen: false).reset();
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const AnimalSpell()));
+                    builder: (context) => const TransSpell()));
               } else {
-                Provider.of<AnimalController>(context, listen: false)
+                Provider.of<TransController>(context, listen: false)
                     .requestWord(request: true);
                 Navigator.of(context).pop();
               }

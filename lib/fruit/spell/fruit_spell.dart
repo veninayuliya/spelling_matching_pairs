@@ -2,48 +2,47 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/transportation/trans_animation.dart';
-import 'package:spelling_matching_game/transportation/trans_controller.dart';
-import 'package:spelling_matching_game/transportation/trans_drag.dart';
-import 'package:spelling_matching_game/transportation/trans_drop.dart';
-import 'package:spelling_matching_game/transportation/trans_progressbar.dart';
-import 'package:spelling_matching_game/transportation/trans_words.dart';
-import 'package:spelling_matching_game/transportation/transportation.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_animation.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_controller.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_drag.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_drop.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_progressbar.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_words.dart';
 
-class TransSpell extends StatefulWidget {
-  const TransSpell({super.key});
+class FruitSpell extends StatefulWidget {
+  const FruitSpell({super.key});
 
   @override
-  State<TransSpell> createState() => _TransSpellState();
+  State<FruitSpell> createState() => _FruitSpellState();
 }
 
-class _TransSpellState extends State<TransSpell> {
-  final List<String> _trwords = transWords.toList();
-  late String _trword, _trdropWord; ////
+class _FruitSpellState extends State<FruitSpell> {
+  final List<String> _frwords = fruitWords.toList();
+  late String _frword, _frdropWord; ////
 
   _generatedWord() {
-    final r = Random().nextInt(_trwords.length);
-    _trword = _trwords[r];
+    final r = Random().nextInt(_frwords.length);
+    _frword = _frwords[r];
     // print(_word);
-    _trdropWord = _trwords[r];
-    _trwords.removeAt(r);
-    final s = _trword.characters.toList()..shuffle(); ////
-    _trword = s.join(); ////
+    _frdropWord = _frwords[r];
+    _frwords.removeAt(r);
+    final s = _frword.characters.toList()..shuffle(); ////
+    _frword = s.join(); ////
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<TransController>(context, listen: false)
-          .setUp(total: _trword.length); ////
-      Provider.of<TransController>(context, listen: false)
+      Provider.of<FruitController>(context, listen: false)
+          .setUp(total: _frword.length); ////
+      Provider.of<FruitController>(context, listen: false)
           .requestWord(request: false);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Selector<TransController, bool>(
+    return Selector<FruitController, bool>(
       selector: (_, controller) => controller.generatedWord,
       builder: (_, generate, __) {
         if (generate) {
-          if (_trwords.isNotEmpty) {
+          if (_frwords.isNotEmpty) {
             _generatedWord();
           }
         }
@@ -54,14 +53,11 @@ class _TransSpellState extends State<TransSpell> {
                 icon: const Icon(Icons.arrow_back_ios_rounded,
                     color: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Transportation()));
+                  Navigator.pop(context);
                 },
               ),
               elevation: 0,
-              backgroundColor: const Color.fromARGB(255, 150, 192, 232),
+              backgroundColor: const Color.fromARGB(255, 198, 237, 185),
             ),
             body: Column(
               children: [
@@ -69,7 +65,7 @@ class _TransSpellState extends State<TransSpell> {
                   flex: 7,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 150, 192, 232),
+                      color: Color.fromARGB(255, 198, 237, 185),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(80),
                           bottomRight: Radius.circular(80)),
@@ -82,7 +78,7 @@ class _TransSpellState extends State<TransSpell> {
                           padding: EdgeInsets.all(8.0),
                           child: Center(
                             child: Text(
-                              'What is this ?',
+                              'What fruit is this ?',
                               style: TextStyle(
                                   fontFamily: 'FjallaOne', fontSize: 16),
                             ),
@@ -90,10 +86,10 @@ class _TransSpellState extends State<TransSpell> {
                         ),
                         Expanded(
                             child: Center(
-                          child: TrAnimation(
+                          child: FrAnimation(
                             animate: true,
                             child: Image.asset(
-                              'assets/images/transportation/$_trdropWord.png',
+                              'assets/images/fruits/$_frdropWord.png',
                               width: 270,
                               height: 230,
                             ),
@@ -112,10 +108,10 @@ class _TransSpellState extends State<TransSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _trdropWord.characters ////
-                                .map((e) => TrAnimation(
+                            children: _frdropWord.characters ////
+                                .map((e) => FrAnimation(
                                       animate: true,
-                                      child: TransDrop(
+                                      child: FruitDrop(
                                         letter: e,
                                       ),
                                     ))
@@ -128,11 +124,11 @@ class _TransSpellState extends State<TransSpell> {
                           color: Colors.white,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _trword.characters
+                            children: _frword.characters
                                 .map(
-                                  (e) => TrAnimation(
+                                  (e) => FrAnimation(
                                     animate: true,
-                                    child: TransDrag(
+                                    child: FruitDrag(
                                       letter: e,
                                     ),
                                   ),
@@ -144,12 +140,9 @@ class _TransSpellState extends State<TransSpell> {
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
-                  child: Container(
-                    color: Colors.purple,
-                    child: const TransProgressBar(),
-                  ),
+                  child: FrProgressBar(),
                 )
               ],
             ),

@@ -1,10 +1,9 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/fruit/fruit_message.dart';
-import 'package:spelling_matching_game/fruit/fruit_words.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_message.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_words.dart';
 
-class FruitController extends ChangeNotifier {
+class TransController extends ChangeNotifier {
   int totalLetters = 0, lettersAnswered = 0, wordsAnswered = 0;
   bool generatedWord = true, sessionCompleted = false;
   double percentCompleted = 0;
@@ -23,14 +22,14 @@ class FruitController extends ChangeNotifier {
       AudioCache().play('audios/correct3.mp3');
       // print('completed');
       wordsAnswered++;
-      percentCompleted = wordsAnswered / fruitWords.length;
-      if (wordsAnswered == fruitWords.length) {
+      percentCompleted = wordsAnswered / transWords.length;
+      if (wordsAnswered == transWords.length) {
         sessionCompleted = true;
       }
       showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (_) => FruitMessage(
+          builder: (_) => TransMessage(
                 sessionCompleted: sessionCompleted,
               ));
     } else {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/fruit/fruit_spell.dart';
+import 'package:spelling_matching_game/fruit/spell/fruit_spell.dart';
 import 'package:spelling_matching_game/home.dart';
 
 class Fruit extends StatelessWidget {

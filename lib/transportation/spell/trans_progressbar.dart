@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/body/body_controller.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_controller.dart';
 
-class BodyProgressBar extends StatefulWidget {
-  const BodyProgressBar({super.key});
+class TransProgressBar extends StatefulWidget {
+  const TransProgressBar({super.key});
 
   @override
-  State<BodyProgressBar> createState() => _BodyProgressBarState();
+  State<TransProgressBar> createState() => _TransProgressBarState();
 }
 
-class _BodyProgressBarState extends State<BodyProgressBar>
+class _TransProgressBarState extends State<TransProgressBar>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -34,7 +34,7 @@ class _BodyProgressBarState extends State<BodyProgressBar>
 
   @override
   Widget build(BuildContext context) {
-    return Selector<BodyController, double>(
+    return Selector<TransController, double>(
         selector: (_, controller) => controller.percentCompleted,
         builder: (_, percent, __) {
           end = percent;
@@ -52,8 +52,16 @@ class _BodyProgressBarState extends State<BodyProgressBar>
           }
           return AnimatedBuilder(
             animation: _controller,
-            builder: (context, child) => LinearProgressIndicator(
-              value: _animation.value,
+            builder: (context, child) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                child: LinearProgressIndicator(
+                  color: Colors.teal,
+                  backgroundColor: Colors.grey,
+                  value: _animation.value,
+                ),
+              ),
             ),
           );
         });

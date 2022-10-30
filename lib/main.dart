@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spelling_matching_game/body/body_controller.dart';
+import 'package:spelling_matching_game/body/spell/body_controller.dart';
 import 'package:spelling_matching_game/splashscreen.dart';
-import 'package:spelling_matching_game/transportation/trans_controller.dart';
+import 'package:spelling_matching_game/transportation/spell/trans_controller.dart';
 
-import 'animal/animal_controller.dart';
-import 'fruit/fruit_controller.dart';
+import 'animal/spell/animal_controller.dart';
+import 'fruit/spell/fruit_controller.dart';
 
 void main() {
   runApp(MultiProvider(
