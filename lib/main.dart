@@ -7,6 +7,8 @@ import 'package:spelling_matching_game/transportation/spell/trans_controller.dar
 import 'animal/spell/animal_controller.dart';
 import 'fruit/spell/fruit_controller.dart';
 
+// List<AnWord> sourceWords = [];
+
 void main() {
   runApp(MultiProvider(
     providers: [
@@ -18,6 +20,7 @@ void main() {
     ],
     child: const MyApp(),
   ));
+  // await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
@@ -31,3 +34,16 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// Future<int> populateSourceWords() async {
+
+//   final ref = FirebaseStorage.instance.ref();
+//   final all = await ref.listAll();
+
+//   for(var item in all.items){
+//     sourceWords.add(AnWord(text: item.name.substring(0, item.name.indexOf('.')), url: await item.getDownloadURL(), displayText: false));
+//   }
+
+//   return 1;
+
+// }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/animal/animal_match.dart';
+import 'package:spelling_matching_game/animal/match/animal_match.dart';
 import 'package:spelling_matching_game/animal/spell/animal_spell.dart';
 import 'package:spelling_matching_game/home.dart';
 

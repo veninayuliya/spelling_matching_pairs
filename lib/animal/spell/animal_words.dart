@@ -6,7 +6,6 @@ const List<String> animalWords = [
   'CAT',
   'CHICKEN',
   'COW',
-  'CROCODILE',
   'DUCK',
   'ELEPHANT',
   'FROG',

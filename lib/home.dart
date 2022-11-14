@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                       const Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Text(
-                          'Animal',
+                          'Animals',
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                       const Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Text(
-                          'Fruit',
+                          'Fruits',
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                       const Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Text(
-                          'Transportation',
+                          'Vehicles',
                           style: TextStyle(
                             fontSize: 20,
                           ),

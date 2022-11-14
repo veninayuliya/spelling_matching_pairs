@@ -37,8 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.4
   audioplayers: ^0.20.1
-  # firebase_core: ^1.21.0
-  # firebase_storage: ^10.3.6
+  firebase_core: ^2.1.1
+  firebase_storage: ^11.0.3
+  google_fonts:
+  confetti:
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,7 @@ flutter:
     - assets/images/bgbp.png
     - assets/images/bgfr.png
     - assets/images/bgtr.png
+    - assets/images/cloud.png
     - assets/images/animals/
     - assets/images/fruits/
     - assets/images/transportation/

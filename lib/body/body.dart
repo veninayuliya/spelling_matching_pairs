@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spelling_matching_game/body/match/body_match.dart';
 import 'package:spelling_matching_game/body/spell/body_spell.dart';
 import 'package:spelling_matching_game/home.dart';
 
@@ -65,7 +66,12 @@ class BodyPart extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 241, 188, 188),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BodyMatch()));
+                    },
                     child: const Text(
                       'Match',
                       style: TextStyle(

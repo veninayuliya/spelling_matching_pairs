@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:spelling_matching_game/fruit/fruit.dart';
 import 'package:spelling_matching_game/fruit/spell/fruit_animation.dart';
 import 'package:spelling_matching_game/fruit/spell/fruit_controller.dart';
 import 'package:spelling_matching_game/fruit/spell/fruit_drag.dart';
@@ -53,7 +54,8 @@ class _FruitSpellState extends State<FruitSpell> {
                 icon: const Icon(Icons.arrow_back_ios_rounded,
                     color: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Fruit()));
                 },
               ),
               elevation: 0,

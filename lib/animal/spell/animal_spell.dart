@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:spelling_matching_game/animal/animal.dart';
 import 'package:spelling_matching_game/animal/spell/animal_animation.dart';
 import 'package:spelling_matching_game/animal/spell/animal_drag.dart';
 import 'package:spelling_matching_game/animal/spell/animal_drop.dart';
@@ -24,7 +25,6 @@ class _AnimalSpellState extends State<AnimalSpell> {
   _generatedWord() {
     final r = Random().nextInt(_anwords.length);
     _anword = _anwords[r];
-    // print(_word);
     _andropWord = _anwords[r];
     _anwords.removeAt(r);
     final s = _anword.characters.toList()..shuffle(); ////
@@ -54,7 +54,8 @@ class _AnimalSpellState extends State<AnimalSpell> {
                 icon: const Icon(Icons.arrow_back_ios_rounded,
                     color: Colors.blueGrey),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Animal()));
                 },
               ),
               elevation: 0,
