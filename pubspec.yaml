@@ -76,6 +76,8 @@ flutter:
     - assets/images/bgfr.png
     - assets/images/bgtr.png
     - assets/images/cloud.png
+    - assets/images/spelling.png
+    - assets/images/memory.png
     - assets/images/animals/
     - assets/images/fruits/
     - assets/images/transportation/

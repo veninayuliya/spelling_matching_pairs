@@ -35,9 +35,13 @@ class BodyPart extends StatelessWidget {
                 child: SizedBox(
                   height: 60,
                   width: 140,
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 241, 188, 188),
+                    ),
+                    icon: const ImageIcon(
+                      AssetImage("assets/images/spelling.png"),
+                      color: Colors.black87,
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -45,7 +49,7 @@ class BodyPart extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const BodySpell()));
                     },
-                    child: const Text(
+                    label: const Text(
                       'Spell',
                       style: TextStyle(
                           fontSize: 20,
@@ -62,9 +66,13 @@ class BodyPart extends StatelessWidget {
                 child: SizedBox(
                   height: 60,
                   width: 140,
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 241, 188, 188),
+                    ),
+                    icon: const ImageIcon(
+                      AssetImage("assets/images/memory.png"),
+                      color: Colors.black87,
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -72,7 +80,7 @@ class BodyPart extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const BodyMatch()));
                     },
-                    child: const Text(
+                    label: const Text(
                       'Match',
                       style: TextStyle(
                           fontSize: 20,

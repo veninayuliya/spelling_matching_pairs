@@ -35,9 +35,13 @@ class Fruit extends StatelessWidget {
                 child: SizedBox(
                   height: 60,
                   width: 140,
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 200, 237, 122),
+                    ),
+                    icon: const ImageIcon(
+                      AssetImage("assets/images/spelling.png"),
+                      color: Colors.black87,
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -45,7 +49,7 @@ class Fruit extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const FruitSpell()));
                     },
-                    child: const Text(
+                    label: const Text(
                       'Spell',
                       style: TextStyle(
                           fontSize: 20,
@@ -62,9 +66,13 @@ class Fruit extends StatelessWidget {
                 child: SizedBox(
                   height: 60,
                   width: 140,
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 200, 237, 122),
+                    ),
+                    icon: const ImageIcon(
+                      AssetImage("assets/images/memory.png"),
+                      color: Colors.black87,
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -72,7 +80,7 @@ class Fruit extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const FruitMatch()));
                     },
-                    child: const Text(
+                    label: const Text(
                       'Match',
                       style: TextStyle(
                           fontSize: 20,
