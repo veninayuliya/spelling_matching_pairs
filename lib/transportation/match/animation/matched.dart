@@ -23,7 +23,7 @@ class _MatchedAnimationState extends State<MatchedAnimation>
   late AnimationController _controller;
   late Animation<double> _shake, _scale;
 
-  Color _defaultColor = Colors.amberAccent, _correctColor = Colors.purple;
+  Color _defaultColor = Colors.grey, _correctColor = Colors.purple;
   bool _correctColorIsSet = false;
 
   @override
@@ -53,10 +53,10 @@ class _MatchedAnimationState extends State<MatchedAnimation>
     if (widget.animate) {
       if (!_correctColorIsSet) {
         if (widget.numberOfWordsAnswered == 4) {
-          _correctColor = Colors.blue;
+          _correctColor = Colors.orange;
         }
         if (widget.numberOfWordsAnswered == 6) {
-          _correctColor = Colors.pinkAccent;
+          _correctColor = Colors.blueGrey;
         }
       }
 

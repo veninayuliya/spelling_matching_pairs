@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spelling_matching_game/home.dart';
+import 'package:spelling_matching_game/transportation/match/trans_match.dart';
 import 'package:spelling_matching_game/transportation/spell/trans_spell.dart';
 
 class Transportation extends StatelessWidget {
@@ -65,7 +66,12 @@ class Transportation extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 130, 185, 235),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TRMatch()));
+                    },
                     child: const Text(
                       'Match',
                       style: TextStyle(
