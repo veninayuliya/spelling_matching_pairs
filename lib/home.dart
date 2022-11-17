@@ -53,8 +53,10 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           'Animals',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontFamily: 'FjallaOne',
+                              fontWeight: FontWeight.w100),
                         ),
                       ),
                     ],
@@ -91,8 +93,10 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           'Fruits',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontFamily: 'FjallaOne',
+                              fontWeight: FontWeight.w100),
                         ),
                       ),
                     ],
@@ -131,8 +135,10 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           'Body Parts',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontFamily: 'FjallaOne',
+                              fontWeight: FontWeight.w100),
                         ),
                       ),
                     ],
@@ -171,8 +177,10 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           'Vehicles',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontFamily: 'FjallaOne',
+                              fontWeight: FontWeight.w100),
                         ),
                       ),
                     ],

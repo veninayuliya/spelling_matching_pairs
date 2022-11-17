@@ -82,7 +82,9 @@ class _FruitSpellState extends State<FruitSpell> {
                             child: Text(
                               'What fruit is this ?',
                               style: TextStyle(
-                                  fontFamily: 'FjallaOne', fontSize: 16),
+                                  fontFamily: 'FjallaOne',
+                                  fontSize: 16,
+                                  color: Colors.black),
                             ),
                           ),
                         ),

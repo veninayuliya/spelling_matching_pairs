@@ -84,7 +84,9 @@ class _TransSpellState extends State<TransSpell> {
                             child: Text(
                               'What is this ?',
                               style: TextStyle(
-                                  fontFamily: 'FjallaOne', fontSize: 16),
+                                  fontFamily: 'FjallaOne',
+                                  fontSize: 16,
+                                  color: Colors.black),
                             ),
                           ),
                         ),

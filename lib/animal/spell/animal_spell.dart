@@ -82,7 +82,9 @@ class _AnimalSpellState extends State<AnimalSpell> {
                             child: Text(
                               'What animal is this ?',
                               style: TextStyle(
-                                  fontFamily: 'FjallaOne', fontSize: 16),
+                                  fontFamily: 'FjallaOne',
+                                  fontSize: 16,
+                                  color: Colors.black),
                             ),
                           ),
                         ),

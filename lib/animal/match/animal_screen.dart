@@ -12,7 +12,7 @@ class AnMatchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Memory Game',
+      title: 'Matching Game',
       theme: ThemeData(
         textTheme: TextTheme(
           bodyText2: TextStyle(

@@ -84,7 +84,9 @@ class _BodySpellState extends State<BodySpell> {
                             child: Text(
                               'What part is this ?',
                               style: TextStyle(
-                                  fontFamily: 'FjallaOne', fontSize: 16),
+                                  fontFamily: 'FjallaOne',
+                                  fontSize: 16,
+                                  color: Colors.black),
                             ),
                           ),
                         ),

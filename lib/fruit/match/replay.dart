@@ -1,8 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:spelling_matching_game/body/match/body_match.dart';
-import 'package:spelling_matching_game/body/match/animation/spin.dart';
+import 'package:spelling_matching_game/fruit/match/animation/spin.dart';
 import 'package:spelling_matching_game/fruit/match/fruit_match.dart';
 
 const messages = ['Awesome!', 'Fantastic!', 'Nice!', 'Great!'];
